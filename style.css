@@ -162,3 +162,44 @@ input[type="text"]:focus {
 .delete-btn:hover {
   opacity: 1;
 }
+
+/* ===============================
+   📱 MOBILE RESPONSIVE PATCH
+================================ */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+  .add-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  input[type="text"] {
+    max-width: none;
+    width: 100%;
+    padding: 14px;
+  }
+  .add-btn {
+    width: 100%;
+    padding: 14px;
+  }
+  .habit-list {
+    height: auto;
+    max-height: 50vh;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .new-day,
+  .del-all-btn {
+    width: 100%;
+  }
+}
+
+
