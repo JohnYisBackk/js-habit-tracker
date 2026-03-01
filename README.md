@@ -32,3 +32,6 @@ from scratch without frameworks.
 - Dark mode
 - Edit habit names
 - Statistics / streak tracking
+
+- ## Live Demo 🚀
+- https://johnyisbackk.github.io/js-habit-tracker/
