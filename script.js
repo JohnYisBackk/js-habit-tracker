@@ -6,7 +6,7 @@ const newDayBtn = document.getElementById("newDayBtn");
 const delAllBtn = document.getElementById("delAllBtn");
 
 // ===============================
-// 2️⃣ STATE (DÁTA APLIKÁCIE)
+//  STATE (DÁTA APLIKÁCIE)
 // ===============================
 let habits = [];
 
@@ -30,11 +30,8 @@ function loadHabits() {
   }
 }
 
-// loadHabits() vytvor storedHabits() localstorage vytiahni
-// ak storedHabits parse
-
 // ===============================
-// 3️⃣ FUNKCIA renderHabits()
+//  FUNKCIA renderHabits()
 // ===============================
 
 function renderHabits() {
@@ -55,7 +52,7 @@ function renderHabits() {
     // CHECKBOX
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.checked = checkbox.done;
+    checkbox.checked = habit.done;
 
     checkbox.addEventListener("change", () => {
       habit.done = checkbox.checked;
@@ -69,10 +66,32 @@ function renderHabits() {
     name.classList.add("habit-name");
     name.textContent = habit.name;
 
+    name.addEventListener("dblclick", () => {
+      const newName = prompt("Edit habit:", habit.name);
+      if (newName === null) return;
+
+      const trimmed = newName.trim();
+      if (trimmed === "") return;
+
+      const exists = habits.some(
+        (h) =>
+          h.id !== habit.id && h.name.toLowerCase() === trimmed.toLowerCase(),
+      );
+      if (exists) {
+        alert("This habit already exists.");
+        return;
+      }
+
+      habit.name = trimmed;
+      renderHabits();
+      saveHabits();
+    });
+
     left.appendChild(checkbox);
     left.appendChild(name);
 
     // DELETE
+
     const delBtn = document.createElement("button");
     delBtn.classList.add("delete-btn");
     delBtn.textContent = "✖";
@@ -95,6 +114,7 @@ function renderHabits() {
 // ===============================
 // DELETE ALL
 // ===============================
+
 delAllBtn.addEventListener("click", () => {
   const confirmDelete = confirm("Delete all habits ?");
 
@@ -103,9 +123,8 @@ delAllBtn.addEventListener("click", () => {
   habits = [];
   renderHabits();
 });
-
 // ===============================
-// 4️⃣ FUNKCIA updateProgress()
+//  FUNKCIA updateProgress()
 // ===============================
 
 function updateProgress() {
@@ -114,13 +133,14 @@ function updateProgress() {
 }
 
 // ===============================
-// 5️⃣ FUNKCIA addHabit()
+//  FUNKCIA addHabit()
 // ===============================
 
 function addHabit() {
   const text = inputEl.value.trim();
+
   if (text === "") {
-    alert("Type some of your habits");
+    alert("Type some of your habits..");
     return;
   }
 
@@ -136,7 +156,7 @@ function addHabit() {
 }
 
 // ===============================
-// 6️⃣ EVENT LISTENERY
+//  EVENT LISTENERY
 // ===============================
 
 addBtn.addEventListener("click", addHabit);
@@ -152,8 +172,10 @@ newDayBtn.addEventListener("click", () => {
 });
 
 // ===============================
-// 7️⃣ INIT
+//  INIT
 // ===============================
 
 loadHabits();
 renderHabits();
+
+
