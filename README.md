@@ -52,7 +52,3 @@ Mobile layout is handled using a simple `@media (max-width: 480px)` query.
 5. Use **New Day** to reset all habits
 6. Progress is automatically saved
 
----
-
-- ## Live Demo 🚀
-- https://johnyisbackk.github.io/js-habit-tracker/
