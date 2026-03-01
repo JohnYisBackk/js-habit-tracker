@@ -3,7 +3,7 @@
 Simple **Habit Tracker web app** built with **vanilla JavaScript**, HTML and CSS.  
 The app helps you track daily habits, mark them as completed, reset progress for a new day, and keep data saved using Local Storage.
 
-🔗 **Live Demo:** https://tvoje-username.github.io/nazov-repa/
+🔗 **Live Demo:** https://johnyisbackk.github.io/js-habit-tracker/
 
 ---
 
